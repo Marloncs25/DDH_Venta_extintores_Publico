@@ -1,0 +1,32 @@
+name: Despliegue a Producción - ALREX
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clonar el repositorio
+        uses: actions/checkout@v3
+
+      - name: Instalar Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      - name: Instalar dependencias backend
+        run: |
+          cd backend
+          npm install
+
+      - name: Compilar frontend
+        run: |
+          cd web-admin
+          npm install
+          npm run build
+
+      - name: Simular despliegue
+        run: echo "✅ Despliegue simulado a servidor de producción"

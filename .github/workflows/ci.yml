@@ -1,0 +1,35 @@
+name: Integración Continua - ALREX
+
+on:
+  push:
+    branches: [ "develop" ]
+  pull_request:
+    branches: [ "develop" ]
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🔄 Clonar el repositorio
+        uses: actions/checkout@v3
+
+      - name: ⚙️ Usar Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      - name: 📦 Instalar dependencias backend
+        run: |
+          cd backend
+          npm install
+
+      - name: 📦 Instalar dependencias frontend
+        run: |
+          cd web-admin
+          npm install
+
+      - name: 🧪 Compilar frontend
+        run: |
+          cd web-admin
+          npm run build
