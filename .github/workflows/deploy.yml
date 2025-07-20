@@ -1,0 +1,17 @@
+name: 🚀 Deploy Frontend y Backend en Render
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🔔 Desplegar Backend en Render
+        run: |
+          curl -X POST "https://api.render.com/deploy/srv-d1u0cjs9c44c73cgn940?key=BWquKTCmNbs"
+
+      - name: 🔔 Desplegar Frontend en Render
+        run: |
+          curl -X POST "https://api.render.com/deploy/srv-d1u4opidbo4c73e725bg?key=WJrMEUIhz-M"
