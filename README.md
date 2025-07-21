@@ -1,116 +1,86 @@
-# 🚀 Sistema de Gestión Web-Admin – ALREX
+# Sistema Web de Ventas – ALREX
+ALREX es un sistema web desarrollado para facilitar la gestión de ventas de extintores. Su objetivo principal es digitalizar los procesos internos de la empresa, permitiendo a los usuarios administrar clientes, productos, servicios y reportes de forma eficiente desde una interfaz web intuitiva.
 
-Este proyecto implementa un sistema de gestión web-administrativo para la empresa ALREX, desarrollado con [indicar tecnología: Java/Spring, PHP/Laravel, Node.js, etc.].
+Este sistema cuenta con:
 
-Este repositorio contiene el código fuente, manuales y configuraciones necesarias para ejecutar y colaborar en el proyecto.
+✅ Un Frontend moderno (React)
+✅ Un Backend robusto (Node.js + Express)
+✅ Una Base de datos NoSQL con MongoDB
+✅ Un flujo de CI/CD automatizado con GitHub Actions y despliegue en Render
 
----
+## 📁 Estructura del Proyecto
+ALREX/
+├── backend/       → API REST con Node.js y MongoDB
+├── frontend/      → Aplicación web desarrollada con React
+├── .github/workflows/deploy.yml → Script de despliegue automático
+└── README.md      → Guía principal de uso
 
-## 📁 Estructura del Manual
+## 🚀 Guía para Ejecutar el Proyecto en Local
 
-Manual-GitHub-ALREX/
-├── README.md (Resumen general del proyecto y guía rápida)
-├── Instalacion.md (Software y dependencias necesarias)
-├── ClonarEjecutar.md (Pasos para clonar y ejecutar el proyecto)
-├── BuenasPracticas.md (Normas de commits y manejo de ramas)
-├── SolucionProblemas.md (Errores frecuentes y soluciones)
-└── Recursos.md (Links útiles y documentación oficial)
+### 1. Clonar el Repositorio
+   git clone https://github.com/Marloncs25/DDH_Venta_extintores_Publico.git
+   cd SistemaWebAdmin
+   
+### 2. Requisitos Previos
+Asegúrate de tener instalado lo siguiente:
 
-## ⚡ Guía rápida para empezar
+✅ Git (versión 2.0 o superior)
 
-1. Clonar el repositorio:
-   ```bash
-   git clone https://github.com/ALREX/SistemaWebAdmin.git
-2. Instalar dependencias (según el lenguaje o framework usado).
-3. Configurar variables de entorno (archivo .env o config.properties).
-4. Ejecutar el servidor de desarrollo:
-     npm start       # Si es Node
-     php artisan serve   # Si es Laravel
-     mvn spring-boot:run  # Si es Spring Boot
-Para una guía completa, revisar el archivo [Clonar y Ejecutar](ClonarEjecutar.md).
+✅ Node.js (v18 o superior)
 
+✅ MongoDB (local o en la nube con MongoDB Atlas)
 
-## Instalacion.md (Software requerido)
+✅ Visual Studio Code (u otro editor de tu preferencia)
 
-# Requisitos e Instalación
+### 3. Configurar Variables de Entorno
+Cada parte del proyecto necesita su propia configuración .env.
 
-## 1. Requisitos previos
-- Git (2.x o superior).
-- Lenguaje/Framework (ejemplo: Node.js 18+, Java 17+ con Maven, o PHP 8 con Composer).
-- Base de datos: MySQL 8 o PostgreSQL (según configuración).
-- IDE recomendado: Visual Studio Code, IntelliJ IDEA o NetBeans.
+####📦 Backend (/backend/.env)
+Crea un archivo .env con el siguiente contenido:
 
-## 2. Instalación de dependencias
+PORT=4000
+MONGODB_URI=mongodb://localhost:27017/alrex_db
+JWT_SECRET=clave_secreta_alrex
+>>Si usas MongoDB Atlas, reemplaza MONGODB_URI con tu cadena de conexión en la nube.<<
 
-Una vez clonado el repositorio:
-
-```bash
+### 4. Instalación de Dependencias
+Backend
+cd backend
 npm install
-o
-composer install
-(según la tecnología).
 
-3. Variables de entorno
-Configurar archivo .env o config.properties con parámetros como:
-
-DB_HOST=localhost
-DB_USER=root
-DB_PASSWORD=tu_clave
-
-
-## 📄 ClonarEjecutar.md (Clonar y ejecutar el proyecto)
-
-```markdown
-# Cómo clonar y ejecutar el proyecto ALREX
-
-## 1. Clonar el repositorio
-
-Desde tu terminal:
-
-```bash
-git clone https://github.com/ALREX/SistemaWebAdmin.git
-cd SistemaWebAdmin
-
-2. Crear una rama de trabajo (opcional)
-git checkout -b tu-rama
-
-3. Instalar dependencias
-Ejecuta:
+Frontend
+cd ../frontend
 npm install
-o
-mvn clean install
-(según el stack tecnológico).
 
-4. Configurar la base de datos
-Crear la base de datos alrex_db en MySQL.
+### 5. Ejecutar el Sistema
+#### ▶️ Iniciar el Backend
+cd backend
+npm run dev
 
-Importar el archivo alrex_db.sql ubicado en la carpeta /database.
+Accede a la API desde: http://localhost:4000 
 
-5. Levantar el servidor
-Para Node.js:
-npm start
+#### 🌐 Iniciar el Frontend
+cd frontend
+npm run dev
 
-Para Laravel:
-php artisan serve
+Accede a la aplicación en: http://localhost:5173
 
-Para Spring Boot:
-mvn spring-boot:run
+#### 🔄 Despliegue Automático (CI/CD con GitHub Actions)
+Este proyecto tiene un flujo automatizado de despliegue. Cada vez que se hace un push a la rama main, se ejecuta un workflow en GitHub Actions que:
 
-
-6. Acceder al sistema
-Una vez iniciado, abre en el navegador:
-
-http://localhost:3000 (Node)
-
-http://localhost:8000 (Laravel)
-
-http://localhost:8080 (Spring Boot)
-
-7. Actualizar cambios del repositorio remoto
-git pull origin main
+- Notifica a Render para que redepliegue automáticamente el backend.
+- Luego hace lo mismo con el frontend.
+- Este sistema evita tener que desplegar manualmente, y asegura que los cambios estén siempre disponibles en producción.
 
 
+# ✅ Recomendaciones Finales
+Para producción, se recomienda usar MongoDB Atlas y no una instancia local.
+
+Asegúrate de que las variables de entorno estén bien configuradas en Render.
+
+Puedes modificar los puertos en los archivos .env si ya están siendo usados por otros servicios.
 
 
-
+# 👨‍💻 Desarrolladores
+Este proyecto fue desarrollado por el equipo de ALREX como parte de una solución tecnológica para mejorar los procesos internos de la empresa – 2025.
 
